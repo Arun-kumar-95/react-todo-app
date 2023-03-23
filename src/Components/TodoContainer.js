@@ -68,6 +68,11 @@ const TodoContainer = () => {
   const handleSubmit = async (e) => {
     // PREVENT THE DEFAULT BEHAVIOR TO THE FORM
     e.preventDefault();
+     if (task.todoTitle === undefined) {
+      toast("Cann't create Empty Todo");
+      return;
+    }
+    
     // DESCTRUCTURING THE TODO TITLE FROM THE TASK
     const { todoTitle } = task;
     // MAKING THE API CALL TO CREATE NEW TODO ITEM
